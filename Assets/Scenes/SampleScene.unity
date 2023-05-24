@@ -2185,8 +2185,9 @@ GameObject:
   - component: {fileID: 944438227}
   - component: {fileID: 944438226}
   - component: {fileID: 944438225}
+  - component: {fileID: 944438228}
   m_Layer: 0
-  m_Name: Socket (1)
+  m_Name: MainEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2271,6 +2272,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944438223}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &944438228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944438223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c8258f5bcefc448a11a1a237bf706b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  enemy: {fileID: 0}
 --- !u!1 &956530247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,7 +2509,6 @@ GameObject:
   - component: {fileID: 1001745825}
   - component: {fileID: 1001745824}
   - component: {fileID: 1001745823}
-  - component: {fileID: 1001745827}
   m_Layer: 0
   m_Name: MrCube2.0
   m_TagString: Untagged
@@ -2545,7 +2559,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.41
-  m_Speed: 3.5
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2579,19 +2593,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -82.989, z: 0}
---- !u!114 &1001745827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001745822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c8258f5bcefc448a11a1a237bf706b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
 --- !u!1 &1005292163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2795,7 @@ GameObject:
   - component: {fileID: 1213237854}
   - component: {fileID: 1213237853}
   - component: {fileID: 1213237852}
+  - component: {fileID: 1213237855}
   m_Layer: 0
   m_Name: RightGun
   m_TagString: Untagged
@@ -2879,6 +2881,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213237850}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1213237855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213237850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c8258f5bcefc448a11a1a237bf706b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  enemy: {fileID: 1001745824}
 --- !u!1 &1266914336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,6 +3387,7 @@ GameObject:
   - component: {fileID: 1602165115}
   - component: {fileID: 1602165114}
   - component: {fileID: 1602165113}
+  - component: {fileID: 1602165116}
   m_Layer: 0
   m_Name: MrCubesBall
   m_TagString: Untagged
@@ -3456,6 +3473,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602165110}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1602165116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602165110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c8258f5bcefc448a11a1a237bf706b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  enemy: {fileID: 1001745824}
 --- !u!1 &1695974271
 GameObject:
   m_ObjectHideFlags: 0

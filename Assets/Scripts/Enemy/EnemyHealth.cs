@@ -17,6 +17,11 @@ public class EnemyHealth : MonoBehaviour
 
     [SerializeField]
     public float health = 10f;
+    private bool isBallGone;
+    private bool isEyeGone;
+    private bool isArmGone;
+
+    public Enemy enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +35,34 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount, string bodyPartName)
     {
         health -= damageAmount;
 
         if(health <= 0)
         {
             Destroy(this.gameObject);
+            Debug.Log("Body part name sent was " + bodyPartName);
+            BodyCheck(bodyPartName);
+        }
+    }
+
+    public void BodyCheck(string bodyPartName)
+    {
+        switch (bodyPartName)
+        {
+            case "MrCubesBall":
+                enemy.lostLegs = true;
+                enemy.Agent.enabled = false;
+                break;
+            case "MainEye":
+                enemy.lostEye = true;
+                break;
+            case "RightGun":
+                enemy.lostArms = true;
+                break;
+            default:
+                break;
         }
     }
 }

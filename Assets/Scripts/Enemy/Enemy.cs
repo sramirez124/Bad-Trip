@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //! Make these [SerializeField] so each body part in orange has its own function
         stateMachine = GetComponent<StateMachine>();
         agent = GetComponent<NavMeshAgent>();
         stateMachine.Initialise();
@@ -49,6 +48,7 @@ public class Enemy : MonoBehaviour
     {
         CanSeePlayer();
         currentState = stateMachine.activeState.ToString();
+        BodyCheck();
     }
 
     public bool CanSeePlayer()
@@ -79,5 +79,16 @@ public class Enemy : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void BodyCheck()
+    {
+        bool rbCheck = false;
+        if(lostLegs == true && rbCheck == false)
+        {
+            Rigidbody rb = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
+            rb.useGravity = true;
+            rbCheck = true;
+        }
     }
 }
