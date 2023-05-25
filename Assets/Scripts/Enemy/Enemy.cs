@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private float sightDistance = 20f;
     public float fieldOfView = 85f;
     public float eyeHeight;
+    private bool rbCheck = false;
 
     //! These bools allow the Enemys body parts to shut down when lost.
     [Header("Script Bools")]
@@ -83,12 +84,12 @@ public class Enemy : MonoBehaviour
 
     public void BodyCheck()
     {
-        bool rbCheck = false;
         if(lostLegs == true && rbCheck == false)
         {
             Rigidbody rb = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
             rb.useGravity = true;
             rbCheck = true;
         }
+        Debug.Log("rbcheck is " + rbCheck);
     }
 }

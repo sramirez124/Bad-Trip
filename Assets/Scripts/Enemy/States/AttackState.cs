@@ -16,13 +16,13 @@ public class AttackState : BaseState
 
     public override void Perform()
     {
-        if(enemy.CanSeePlayer()) // player can be seen.
+        if(enemy.CanSeePlayer() || enemy.lostArms == false) // player can be seen.
         {
             //lock the lose player timer and increment the move and shot timers.
-            losePlayerTimer = 0;
-            moveTimer += Time.deltaTime;
-            shotTimer += Time.deltaTime;
-            enemy.transform.LookAt(enemy.Player.transform);
+            Timers();
+
+            // If Robot loses eye it will not look at the player.
+            CanLookAtPlayerCheck();
 
             //if shot time > fireRate
             if (shotTimer > enemy.fireRate)
@@ -31,11 +31,8 @@ public class AttackState : BaseState
             }
 
             //move the enemy to a random position after a random time.
-            if (moveTimer > Random.Range(3, 7))
-            {
-                enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
-                moveTimer = 0;
-            }
+            MoveToRandomPosition();
+            
         }
         else
         {
@@ -68,6 +65,30 @@ public class AttackState : BaseState
         bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-3f, 3f), Vector3.up) * shootDirection * 40; //! make this a variable you can change
         //Debug.Log("Shoot");
         shotTimer = 0;
+    }
+
+    public void Timers()
+    {
+        losePlayerTimer = 0;
+        moveTimer += Time.deltaTime;
+        shotTimer += Time.deltaTime;
+    }
+
+    public void CanLookAtPlayerCheck()
+    {
+        if (enemy.CanSeePlayer())
+        {
+            enemy.transform.LookAt(enemy.Player.transform);
+        }
+    }
+
+    public void MoveToRandomPosition()
+    {
+        if (moveTimer > Random.Range(3, 7) || enemy.lostEye == true)
+        {
+            enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
+            moveTimer = 0;
+        }
     }
 
     public void Start()
