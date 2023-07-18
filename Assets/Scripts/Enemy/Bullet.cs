@@ -16,6 +16,6 @@ public class Bullet : MonoBehaviour
         else
             //Debug.Log("Hit " + transformName);
             collision.transform.GetComponent<EnemyHealth>().TakeDamage(1, transformName);
-            Destroy(this.gameObject);
+            Debug.Log("I am hitting "+ transformName);
     }
 }

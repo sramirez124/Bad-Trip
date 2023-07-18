@@ -50,6 +50,11 @@ public class Enemy : MonoBehaviour
         CanSeePlayer();
         currentState = stateMachine.activeState.ToString();
         BodyCheck();
+
+        if(lostLegs == true)
+        {
+            agent.enabled = false;
+        }
     }
 
     public bool CanSeePlayer()
@@ -89,6 +94,8 @@ public class Enemy : MonoBehaviour
             Rigidbody rb = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
             rb.useGravity = true;
             rbCheck = true;
+            rb.interpolation = RigidbodyInterpolation.Interpolate;
+            rb.collisionDetectionMode =  CollisionDetectionMode.Continuous;
         }
         Debug.Log("rbcheck is " + rbCheck);
     }

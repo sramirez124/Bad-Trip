@@ -53,7 +53,7 @@ public class EnemyHealth : MonoBehaviour
         {
             case "MrCubesBall":
                 enemy.lostLegs = true;
-                enemy.Agent.enabled = false;
+                //enemy.Agent.enabled = false;
                 break;
             case "MainEye":
                 enemy.lostEye = true;
